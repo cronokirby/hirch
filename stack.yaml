@@ -1,0 +1,6 @@
+location: "./custom-snapshot.yaml"
+
+resolver: lts-10.3
+
+packages:
+- .

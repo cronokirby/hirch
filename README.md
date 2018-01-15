@@ -1,0 +1,2 @@
+# hirch
+Basic IRC client.

@@ -1,0 +1,62 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 5835eecfefcac5976a0879db6dd44c6f63e24b8d79db7aad026a1c460162dadf
+
+name:           hirch
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/githubuser/hirch#readme>
+homepage:       https://github.com/githubuser/hirch#readme
+bug-reports:    https://github.com/githubuser/hirch/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2018 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/hirch
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_hirch
+  default-language: Haskell2010
+
+executable hirch-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hirch
+  other-modules:
+      Paths_hirch
+  default-language: Haskell2010
+
+test-suite hirch-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hirch
+  other-modules:
+      Paths_hirch
+  default-language: Haskell2010
