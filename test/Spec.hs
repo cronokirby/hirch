@@ -11,6 +11,7 @@ main = hspec $ do
 ircTypesSpec = do
     joinNonEmptySpec
 
+
 joinNonEmptySpec = describe "joinNonEmpty" $ do
     it "returns an empty string for an empty sep and list elements" $ do
         joinNonEmpty "" ("" :| []) `shouldBe` ""
@@ -21,3 +22,9 @@ joinNonEmptySpec = describe "joinNonEmpty" $ do
         joinNonEmpty "," ("1" :| ["2"]) `shouldBe` "1,2"
         joinNonEmpty "," ("1" :| ["2", "3"]) `shouldBe` "1,2,3"
 
+
+joinIrcChannelsSpec = describe "joinIrcChannels" $ do
+    it "simply adds a # for a single channel" $ do
+        joinIrcChannels ("foo" :| []) `shouldBe` "#foo"
+    it "handles multiple channels" $ do
+        joinIrcChannels ("foo" :| ["bar", "baz"]) `shouldBe` "#foo,#bar,#baz"
