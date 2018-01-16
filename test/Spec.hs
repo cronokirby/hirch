@@ -10,6 +10,7 @@ main = hspec $ do
 
 ircTypesSpec = do
     joinNonEmptySpec
+    joinIrcChannelsSpec
 
 
 joinNonEmptySpec = describe "joinNonEmpty" $ do
