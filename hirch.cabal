@@ -62,6 +62,7 @@ test-suite hirch-test
       base >=4.7 && <5
     , hirch
     , hspec
+    , text
     , QuickCheck
   other-modules:
       Paths_hirch
