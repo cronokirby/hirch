@@ -4,10 +4,12 @@ module Hirch
     ) where
 
 import           Data.Monoid  ((<>))
-import           Data.Text    (Text)
+import           Data.Text    (Text, pack)
 import qualified Data.Text.IO as T
+import           IrcTypes
 import           Network      (PortID (..), PortNumber, connectTo)
-import           System.IO    (BufferMode (..), Handle, hSetBuffering)
+import           System.IO    (BufferMode (..), Handle, hSetBuffering,
+                               hSetEncoding, stdout, utf8)
 
 server :: String
 server = "irc.freenode.org"
@@ -23,7 +25,7 @@ nick = "tutbot"
 
 app :: IO ()
 app = do
-    putStrLn "foo"
+    hSetEncoding stdout utf8
     h <- connectTo server (PortNumber port)
     hSetBuffering h NoBuffering
     write h "NICK" nick
@@ -41,5 +43,5 @@ write h s t = do
 listen :: Handle -> IO ()
 listen h = do
     s <- T.hGetLine h
-    T.putStrLn s
+    T.putStrLn (pack . show . parseServerMessage $ s)
     listen h
